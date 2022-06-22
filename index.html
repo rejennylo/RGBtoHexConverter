@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGB to Hex Converter</title>
+    <link rel="stylesheet" href="all.css">
+</head>
+<body>
+    <header>
+        <h1>RGB to Hex</h1>
+    </header>
+    <main>
+        <section class="control-box">
+            <section class="box red-box">
+                <span class="box red">R</span>
+                <input type="range" id="r" value="0" min="0" max="255" step="1">
+                <span class="box red" id="red-value">0</span>
+            </section>
+            <section class="box green-box">
+                <span class="box green">G</span>
+                <input type="range" id="g" value="0" min="0" max="255" step="1">
+                <span class="box green" id="green-value">0</span>
+            </section>
+            <section class="box blue-box">
+                <span class="box blue">B</span>
+                <input type="range" id="b" value="0" min="0" max="255" step="1">
+                <span class="box blue" id="blue-value">0</span>
+            </section>
+        </section>
+        <section class="output-box">
+            <section class="output" id="output-value">#000000</section>
+        </section>
+    </main>
+    <script>
+        const redSlider = document.getElementById('r')
+        const greenSlider = document.getElementById('g')
+        const blueSlider = document.getElementById('b')
+        const output = document.getElementById('output-value')
+
+        redSlider.addEventListener('mousemove', red)
+        greenSlider.addEventListener('mousemove', green)
+        blueSlider.addEventListener('mousemove', blue)
+
+        function rgbToHex() {
+            let redValue = Number(redSlider.value).toString(16)
+            let greenValue = Number(greenSlider.value).toString(16)
+            let blueValue = Number(blueSlider.value).toString(16)
+            return output.innerHTML = `#${redValue.padStart(2,0)}${greenValue.padStart(2,0)}${blueValue.padStart(2,0)}`
+        }
+        
+        function bgColor() {
+            return document.body.style.backgroundColor = output.innerHTML
+        }
+        
+        function red(event) {
+            let red = document.getElementById('red-value')
+            red.innerHTML = event.target.value
+            rgbToHex()
+            bgColor()
+        }
+
+        function green(event) {
+            let green = document.getElementById('green-value')
+            green.innerHTML = event.target.value
+            rgbToHex()
+            bgColor()
+        }
+
+        function blue(event) {
+            let blue = document.getElementById('blue-value')
+            blue.innerHTML = event.target.value
+            rgbToHex()
+            bgColor()
+        }
+    </script>
+</body>
+</html>

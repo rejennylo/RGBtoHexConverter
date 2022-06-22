@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Manrope', sans-serif;
+}
+body {
+    background-color: #000;
+}
+header,main {
+    text-align: center;
+}
+h1 {
+    padding: 1.5rem 0;
+    color: #666;
+}
+.control-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.box {
+    padding: 5px;
+    border-radius: 3px;
+    font-weight: bold;
+    color: #fff;
+}
+.red {
+    background-color: #F00;
+}
+.green {
+    background-color: #0F0;
+}
+.blue {
+    background-color: #00F;
+}
+.output {
+    font-size: 2.5rem;
+    color: #666;
+}
